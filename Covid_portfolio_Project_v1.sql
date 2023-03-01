@@ -6,31 +6,6 @@ UPDATE `coviddeaths` SET `date` = str_to_date( `date`, '%d-%m-%Y' ); #changed th
 Update covid_vacc set date=str_to_date(date,"%d-%m-%Y"); #changed the data type to date format of covid vaccination table
 alter table covid_vacc rename column date to date1;
 
-/*alter table coviddeaths
-modify column total_cases int,
-modify column new_cases int,
-modify column new_cases_smoothed double DEFAULT NULL,
-modify column total_deaths int,
-modify column new_deaths int,
-modify column new_deaths_smoothed double DEFAULT NULL,
-modify column total_cases_per_million double DEFAULT NULL,
-modify column new_cases_per_million double DEFAULT NULL,
-modify column new_cases_smoothed_per_million double DEFAULT NULL,
-modify column total_deaths_per_million double DEFAULT NULL,
-modify column new_deaths_smoothed_per_million double DEFAULT NULL,
-modify column reproduction_rate double DEFAULT NULL,
-modify column  icu_patients int,
-modify column icu_patients_per_million  double DEFAULT NULL,
-modify column hosp_patients  double DEFAULT NULL, 
-
-modify column  hosp_patients_per_million double DEFAULT NULL,
-modify column  weekly_icu_admissions double DEFAULT NULL,
-modify column  weekly_icu_admissions_per_million double DEFAULT NULL,
-modify column weekly_hosp_admissions  double DEFAULT NULL,
-modify column weekly_hosp_admissions_per_million double DEFAULT NULL
-
-
--- modify column hosp_patients_per_million  numeric,*/
 
 -- Looking at Total cases vs Total deaths
 select location, date1, total_cases, new_cases, total_deaths, (total_deaths/total_cases)*100 AS DeathPercentage from coviddeaths
